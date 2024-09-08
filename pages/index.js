@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
   const url = window.location.origin.replace('localhost', '127.0.0.1') +
-    '/api/getM3u';
+    '/tvtelugu';
 
   setDynamicUrl(url);
 }, []);
