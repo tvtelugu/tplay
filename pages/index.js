@@ -21,7 +21,7 @@ export default function Home() {
       redirect: 'follow'
     };
 
-    fetch(window.location.origin + '/api/getM3u', requestOptions)
+    fetch(window.location.origin + '/tvtelugu', requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result);
