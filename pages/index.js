@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
   const url = window.location.origin.replace('localhost', '127.0.0.1') +
-    '/tvtelugu';
+    '/api/getM3u';
 
   setDynamicUrl(url);
 }, []);
@@ -21,7 +21,7 @@ export default function Home() {
       redirect: 'follow'
     };
 
-    fetch(window.location.origin + '/tvtelugu', requestOptions)
+    fetch(window.location.origin + '/api/getM3u', requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result);
@@ -52,6 +52,36 @@ export default function Home() {
         <title>Generate Tata Play IPTV playlist</title>
        
       </Head>
-    
+      <Grid columns='equal' padded centered>
+        <Grid.Row>
+          <Grid.Column></Grid.Column>
+          <Grid.Column computer={8} tablet={12} mobile={16}>
+            <Segment loading={downloading}>
+           
+            </Segment>
+          </Grid.Column>
+          <Grid.Column></Grid.Column>
+        </Grid.Row>
+        <Grid.Row style={{ display: err === '' ? 'none' : 'block' }}>
+          <Grid.Column></Grid.Column>
+          <Grid.Column computer={8} tablet={12} mobile={16}>
+            <Message color='red'>
+              <Message.Header>Error</Message.Header>
+              <p>
+                {err}
+              </p>
+            </Message>
+          </Grid.Column>
+          <Grid.Column></Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column></Grid.Column>
+          <Grid.Column textAlign='center' computer={8} tablet={12} mobile={16}>
+          
+          </Grid.Column>
+          <Grid.Column></Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
   )
 }
